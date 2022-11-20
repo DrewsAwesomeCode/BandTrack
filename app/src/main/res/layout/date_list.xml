@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linearLayout">
+
+    <TextView
+        android:id="@+id/textViewDateId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Id"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewDateName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewHotel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hotel"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewHours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hours"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewGifts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gifts"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewEvents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Events"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewConsideration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consideration"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewGiftConsideration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gift Consideration"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+</LinearLayout>
