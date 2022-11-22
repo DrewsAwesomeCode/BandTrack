@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_band"
+            android:id="@+id/nav_bands"
             android:icon="@drawable/heart"
             android:title="Bands" />
         <item

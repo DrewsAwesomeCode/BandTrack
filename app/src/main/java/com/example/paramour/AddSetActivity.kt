@@ -14,7 +14,6 @@ import com.example.bandtrack.data.DatabaseHandler
 import com.example.bandtrack.data.Set
 import kotlinx.android.synthetic.main.activity_add_set.*
 import kotlinx.android.synthetic.main.activity_add_set.listView
-import kotlinx.android.synthetic.main.activity_add_band.*
 import java.sql.Date
 
 
@@ -82,17 +81,17 @@ class AddSetActivity : AppCompatActivity() {
         val setArrayConsideration = Array<String>(set.size){"0"}
         val setArrayGiftConsideration = Array<String>(set.size){"0"}
         var index = 0
-        for(d in set){
-            setArrayId[index] = d.dId.toString()
-            setArrayName[index] = d.bandName
-            setArrayDate[index] = d.date.toString()
-            setArrayHotel[index] = d.hotel
-            setArrayCity[index] = d.city
-            setArrayHours[index] = d.hours.toString()
-            setArrayGifts[index] = d.gifts
-            setArrayEvents[index] = d.events
-            setArrayConsideration[index] = d.consideration.toString()
-            setArrayGiftConsideration[index] = d.giftConsideration.toString()
+        for(s in set){
+            setArrayId[index] = s.dId.toString()
+            setArrayName[index] = s.bandName
+            setArrayDate[index] = s.date.toString()
+            setArrayHotel[index] = s.hotel
+            setArrayCity[index] = s.city
+            setArrayHours[index] = s.hours.toString()
+            setArrayGifts[index] = s.gifts
+            setArrayEvents[index] = s.events
+            setArrayConsideration[index] = s.consideration.toString()
+            setArrayGiftConsideration[index] = s.giftConsideration.toString()
             index++
         }
         //creating custom ArrayAdapter
@@ -115,11 +114,11 @@ class AddSetActivity : AppCompatActivity() {
     fun updateRecord(view: View){
         val dialogBuilder = AlertDialog.Builder(this)
         val inflater = this.layoutInflater
-        val dialogView = inflater.inflate(R.layout.date_update_dialog, null)
+        val dialogView = inflater.inflate(R.layout.set_update_dialog, null)
         dialogBuilder.setView(dialogView)
 
-        val edtId = dialogView.findViewById(R.id.updateDateId) as EditText
-        val edtName = dialogView.findViewById(R.id.updateDateName) as EditText
+        val edtId = dialogView.findViewById(R.id.updateSetId) as EditText
+        val edtName = dialogView.findViewById(R.id.updateBandName) as EditText
         val edtDate = dialogView.findViewById(R.id.updateDate) as EditText
         val edtHotel = dialogView.findViewById(R.id.updateHotel) as EditText
         val edtCity = dialogView.findViewById(R.id.updateCity) as EditText
@@ -145,11 +144,11 @@ class AddSetActivity : AppCompatActivity() {
             val updateGiftConsideration = edtGiftConsideration.text.toString()
 
             //creating the instance of DatabaseHandler class
-            val databaseHandler: DateDatabaseHandler= DateDatabaseHandler(this, null)
+            val databaseHandler: DatabaseHandler= DatabaseHandler(this, null)
             if(updateId.trim()!="" && updateName.trim()!="" && updateDate.trim()!="" && updateHotel.trim()!="" && updateCity.trim()!="" &&
                 updateHours.trim()!=""  && updateGifts.trim()!=""  && updateEvents.trim()!=""  && updateConsideration.trim()!=""  && updateGiftConsideration.trim()!=""){
                 //calling the updateEmployee method of DatabaseHandler class to update record
-                val status = databaseHandler.updateDate(Meeting(
+                val status = databaseHandler.updateSet(Set(
                     Integer.parseInt(updateId),
                     updateName,
                     Date.valueOf(updateDate),
@@ -180,20 +179,20 @@ class AddSetActivity : AppCompatActivity() {
         //creating AlertDialog for taking user id
         val dialogBuilder = AlertDialog.Builder(this)
         val inflater = this.layoutInflater
-        val dialogView = inflater.inflate(R.layout.date_delete_dialog, null)
+        val dialogView = inflater.inflate(R.layout.set_delete_dialog, null)
         dialogBuilder.setView(dialogView)
 
-        val dltId = dialogView.findViewById(R.id.deleteDateId) as EditText
+        val dltId = dialogView.findViewById(R.id.deleteSetId) as EditText
         dialogBuilder.setTitle("Delete Record")
         dialogBuilder.setMessage("Enter ID below")
         dialogBuilder.setPositiveButton("Delete", DialogInterface.OnClickListener { _, _ ->
 
             val deleteId = dltId.text.toString()
             //creating the instance of DatabaseHandler class
-            val databaseHandler: DateDatabaseHandler = DateDatabaseHandler(this,null)
+            val databaseHandler: DatabaseHandler = DatabaseHandler(this,null)
             if(deleteId.trim()!=""){
                 //calling the deleteEmployee method of DatabaseHandler class to delete record
-                val status = databaseHandler.deleteDate(Meeting(
+                val status = databaseHandler.deleteSet(Set(
                     Integer.parseInt(deleteId),
                     "",
                     Date.valueOf("1900-01-01"),

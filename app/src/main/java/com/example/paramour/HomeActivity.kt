@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener {
-            val intent = Intent(this,HomeActivity::class.java)
+            val intent = Intent(this,AddSetActivity::class.java)
             startActivity(intent)
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout

@@ -2,7 +2,7 @@ package com.example.bandtrack.data
 
 class Set (
     var dId: Int,
-    val setName:String,
+    val bandName:String,
     val date: java.sql.Date,
     val hotel: String,
     val city: String,

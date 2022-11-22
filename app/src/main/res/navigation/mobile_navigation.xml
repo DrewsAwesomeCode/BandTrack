@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_band">
+    app:startDestination="@+id/nav_bands">
 
     <fragment
-        android:id="@+id/nav_band"
+        android:id="@+id/nav_bands"
         android:name="com.example.bandtrack.ui.band.BandFragment"
         android:label="Bands"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_dates"
+        android:id="@+id/nav_sets"
         android:name="com.example.bandtrack.ui.sets.SetsFragment"
         android:label="Sets"
         tools:layout="@layout/fragment_gallery" />

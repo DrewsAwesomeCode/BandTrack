@@ -5,14 +5,14 @@
     android:id="@+id/linearLayout">
 
     <TextView
-        android:id="@+id/textViewDateId"
+        android:id="@+id/textViewSetId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Id"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
     <TextView
-        android:id="@+id/textViewDateName"
+        android:id="@+id/textViewBandName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"

@@ -105,9 +105,9 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
                 consideration = cursor.getString(cursor.getColumnIndex("consideration"))
                 giftConsideration = cursor.getString(cursor.getColumnIndex("giftConsideration"))
 
-                val meet= Meeting(
+                val meet= Set(
                     dId = dId,
-                    setName = bandName,
+                    bandName = bandName,
                     date = Date.valueOf(date),
                     hotel = hotel,
                     city = city,
@@ -117,40 +117,40 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
                     consideration = consideration.toLong(),
                     giftConsideration = giftConsideration.toLong()
                 )
-                dateList.add(meet)
+                setList.add(meet)
             } while (cursor.moveToNext())
         }
-        return dateList
+        return setList
     }
-    //method to update dates
-    fun updateDate(meet: Meeting):Int{
+    //method to update sets
+    fun updateSet(set: Set):Int{
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(KEY_DATEID, meet.dId)
-        contentValues.put(KEY_DATENAME, meet.bandName)
-        contentValues.put(KEY_DATE, meet.date.toString())
-        contentValues.put(KEY_HOTEL, meet.hotel)
-        contentValues.put(KEY_CITY, meet.city)
-        contentValues.put(KEY_HOURS, meet.hours)
-        contentValues.put(KEY_GIFTS, meet.gifts)
-        contentValues.put(KEY_EVENTS, meet.events)
-        contentValues.put(KEY_CONSIDERATION, meet.consideration)
-        contentValues.put(KEY_GIFTCONSIDERATION, meet.giftConsideration)
+        contentValues.put(KEY_SETID, set.dId)
+        contentValues.put(KEY_BANDNAME, set.bandName)
+        contentValues.put(KEY_DATE, set.date.toString())
+        contentValues.put(KEY_HOTEL, set.hotel)
+        contentValues.put(KEY_CITY, set.city)
+        contentValues.put(KEY_HOURS, set.hours)
+        contentValues.put(KEY_GIFTS, set.gifts)
+        contentValues.put(KEY_EVENTS, set.events)
+        contentValues.put(KEY_CONSIDERATION, set.consideration)
+        contentValues.put(KEY_GIFTCONSIDERATION, set.giftConsideration)
 
 
         // Updating Row
-        val success = db.update(DateDatabaseHandler.TABLE_DATES, contentValues,"id="+meet.dId,null)
+        val success = db.update(DatabaseHandler.TABLE_SETS, contentValues,"id="+set.dId,null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
     }
-    //method to delete dates
-    fun deleteDate(meet: Meeting):Int{
+    //method to delete sets
+    fun deleteSet(set: Set):Int{
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(DateDatabaseHandler.KEY_DATEID, meet.dId)
+        contentValues.put(DatabaseHandler.KEY_SETID, set.dId)
         // Deleting Row
-        val success = db.delete(DateDatabaseHandler.TABLE_DATES,"id="+meet.dId,null)
+        val success = db.delete(DatabaseHandler.TABLE_SETS,"id="+set.dId,null)
         //2nd argument is String containing nullColumnHack
         db.close() // Closing database connection
         return success
