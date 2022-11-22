@@ -27,11 +27,18 @@
         android:hint="Enter Date"/>
 
     <EditText
-        android:id="@+id/updateHotel"
+        android:id="@+id/updateRating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Hotel" />
+        android:hint="Enter Rating" />
+
+    <EditText
+        android:id="@+id/updateVenue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Venue"/>
 
     <EditText
         android:id="@+id/updateCity"
@@ -41,38 +48,10 @@
         android:hint="Enter City"/>
 
     <EditText
-        android:id="@+id/updateHours"
+        android:id="@+id/updateTicketCost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Hours"/>
-
-    <EditText
-        android:id="@+id/updateGifts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter Gifts"/>
-
-    <EditText
-        android:id="@+id/updateEvents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter Events" />
-
-    <EditText
-        android:id="@+id/updateConsideration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter Consideration"/>
-
-    <EditText
-        android:id="@+id/updateGiftConsideration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter Gift Consideration"/>
+        android:hint="Enter Ticket Cost"/>
 
 </LinearLayout>

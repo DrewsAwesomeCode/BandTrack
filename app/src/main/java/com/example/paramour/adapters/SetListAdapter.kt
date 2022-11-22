@@ -8,17 +8,15 @@ import android.widget.TextView
 import com.example.bandtrack.R
 
 class SetListAdapter(private val context: Activity,
-                     private val id: Array<String>,
-                     private val name: Array<String>,
+                     private val setId: Array<String>,
+                     private val bandName: Array<String>,
                      private val date: Array<String>,
-                     private val hotel: Array<String>,
+                     private val rating: Array<String>,
+                     private val venue: Array<String>,
                      private val city: Array<String>,
-                     private val hours: Array<String>,
-                     private val gifts: Array<String>,
-                     private val events: Array<String>,
-                     private val consideration: Array<String>,
-                     private val giftConsideration: Array<String>
-                      ): ArrayAdapter<String>(context, R.layout.set_list, name) {
+                     private val ticketCost: Array<String>,
+
+                      ): ArrayAdapter<String>(context, R.layout.set_list, bandName) {
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
         val inflater = context.layoutInflater
@@ -27,24 +25,18 @@ class SetListAdapter(private val context: Activity,
         val idText = rowView.findViewById(R.id.textViewSetId) as TextView
         val nameText = rowView.findViewById(R.id.textViewBandName) as TextView
         val dateText = rowView.findViewById(R.id.textViewDate) as TextView
-        val hotelText = rowView.findViewById(R.id.textViewHotel) as TextView
+        val ratingText = rowView.findViewById(R.id.textViewRating) as TextView
+        val venueText = rowView.findViewById(R.id.textViewVenue) as TextView
         val cityText = rowView.findViewById(R.id.textViewCity) as TextView
-        val hoursText = rowView.findViewById(R.id.textViewHours) as TextView
-        val giftsText = rowView.findViewById(R.id.textViewGifts) as TextView
-        val eventsText = rowView.findViewById(R.id.textViewEvents) as TextView
-        val considerationText = rowView.findViewById(R.id.textViewConsideration) as TextView
-        val giftConsiderationText = rowView.findViewById(R.id.textViewGiftConsideration) as TextView
+        val ticketCostText = rowView.findViewById(R.id.textViewTicketCost) as TextView
 
-        idText.text = "Id: ${id[position]}"
-        nameText.text = "Name: ${name[position]}"
+        idText.text = "Id: ${setId[position]}"
+        nameText.text = "Name: ${bandName[position]}"
         dateText.text = "Date: ${date[position]}"
-        hotelText.text = "Hotel: ${hotel[position]}"
-        cityText.text = "City: ${city[position]}"
-        hoursText.text = "Hours: ${hours[position]}"
-        giftsText.text = "Gifts: ${gifts[position]}"
-        eventsText.text = "Events: ${events[position]}"
-        considerationText.text = "Consideration ${consideration[position]}"
-        giftConsiderationText.text = "Gifts Consideration ${giftConsideration[position]}"
+        ratingText.text = "Hotel: ${rating[position]}"
+        venueText.text = "City: ${venue[position]}"
+        cityText.text = "Hours: ${city[position]}"
+        ticketCostText.text = "Gifts: ${ticketCost[position]}"
 
         return rowView
     }

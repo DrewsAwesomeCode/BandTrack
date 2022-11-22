@@ -33,31 +33,25 @@ class AddSetActivity : AppCompatActivity() {
         val id = s_id.text.toString()
         val name = s_name.text.toString()
         val date = s_date.text.toString()
-        val hotel = s_hotel.text.toString()
+        val rating = s_rating.text.toString()
+        val venue = s_venue.text.toString()
         val city = s_city.text.toString()
-        val hours = s_hours.text.toString()
-        val gifts = s_gifts.text.toString()
-        val events = s_events.text.toString()
-        val consideration = s_consideration.text.toString()
-        val giftConsideration = s_giftConsideration.text.toString()
+        val ticketcost = s_ticketcost.text.toString()
         val databaseHandler: DatabaseHandler = DatabaseHandler(this,null)
-        if(id.trim()!="" && name.trim()!="" && date.trim()!="" && hotel.trim()!="" && city.trim()!="" &&
-            hours.trim()!="" && gifts.trim()!="" && events.trim()!="" && consideration.trim()!="" && giftConsideration.trim()!="") {
+        if(id.trim()!="" && name.trim()!="" && date.trim()!="" && rating.trim()!="" && venue.trim()!="" &&
+            city.trim()!="" && ticketcost.trim()!="") {
 
-            val status = databaseHandler.addSet(Set(Integer.parseInt(id),name, Date.valueOf(date), hotel, city, hours.toDouble(),
-                                                        gifts, events, consideration.toLong(), giftConsideration.toLong()))
+            val status = databaseHandler.addSet(Set(Integer.parseInt(id),name, Date.valueOf(date), rating.toDouble(),
+                                                    venue, city, ticketcost.toDouble()))
             if(status > -1){
                 Toast.makeText(applicationContext,"Record saved!",Toast.LENGTH_LONG).show()
                 s_id.text.clear()
                 s_name.text.clear()
                 s_date.text.clear()
-                s_hotel.text.clear()
+                s_rating.text.clear()
+                s_venue.text.clear()
                 s_city.text.clear()
-                s_hours.text.clear()
-                s_gifts.text.clear()
-                s_events.text.clear()
-                s_consideration.text.clear()
-                s_giftConsideration.text.clear()
+                s_ticketcost.text.clear()
             }
         }else{
             Toast.makeText(applicationContext,"Cannot be blank",Toast.LENGTH_LONG).show()
@@ -73,25 +67,19 @@ class AddSetActivity : AppCompatActivity() {
         val setArrayId = Array<String>(set.size){"0"}
         val setArrayName = Array<String>(set.size){"null"}
         val setArrayDate = Array<String>(set.size){"1900-01-01"}
-        val setArrayHotel = Array<String>(set.size){"null"}
+        val setArrayRating = Array<String>(set.size){"0"}
+        val setArrayVenue = Array<String>(set.size){"null"}
         val setArrayCity = Array<String>(set.size){"null"}
-        val setArrayHours = Array<String>(set.size){"0.0"}
-        val setArrayGifts = Array<String>(set.size){"null"}
-        val setArrayEvents = Array<String>(set.size){"null"}
-        val setArrayConsideration = Array<String>(set.size){"0"}
-        val setArrayGiftConsideration = Array<String>(set.size){"0"}
+        val setArrayTicketCost = Array<String>(set.size){"0.0"}
         var index = 0
         for(s in set){
-            setArrayId[index] = s.dId.toString()
+            setArrayId[index] = s.setId.toString()
             setArrayName[index] = s.bandName
             setArrayDate[index] = s.date.toString()
-            setArrayHotel[index] = s.hotel
+            setArrayRating[index] = s.rating.toString()
+            setArrayVenue[index] = s.venue
             setArrayCity[index] = s.city
-            setArrayHours[index] = s.hours.toString()
-            setArrayGifts[index] = s.gifts
-            setArrayEvents[index] = s.events
-            setArrayConsideration[index] = s.consideration.toString()
-            setArrayGiftConsideration[index] = s.giftConsideration.toString()
+            setArrayTicketCost[index] = s.ticketCost.toString()
             index++
         }
         //creating custom ArrayAdapter
@@ -100,13 +88,10 @@ class AddSetActivity : AppCompatActivity() {
             setArrayId,
             setArrayName,
             setArrayDate,
-            setArrayHotel,
+            setArrayRating,
+            setArrayVenue,
             setArrayCity,
-            setArrayHours,
-            setArrayGifts,
-            setArrayEvents,
-            setArrayConsideration,
-            setArrayGiftConsideration
+            setArrayTicketCost
         )
         listView.adapter = myListAdapter
     }
@@ -120,13 +105,10 @@ class AddSetActivity : AppCompatActivity() {
         val edtId = dialogView.findViewById(R.id.updateSetId) as EditText
         val edtName = dialogView.findViewById(R.id.updateBandName) as EditText
         val edtDate = dialogView.findViewById(R.id.updateDate) as EditText
-        val edtHotel = dialogView.findViewById(R.id.updateHotel) as EditText
+        val edtRating = dialogView.findViewById(R.id.updateRating) as EditText
+        val edtVenue = dialogView.findViewById(R.id.updateVenue) as EditText
         val edtCity = dialogView.findViewById(R.id.updateCity) as EditText
-        val edtHours = dialogView.findViewById(R.id.updateHours) as EditText
-        val edtGifts = dialogView.findViewById(R.id.updateGifts) as EditText
-        val edtEvents = dialogView.findViewById(R.id.updateEvents) as EditText
-        val edtConsideration = dialogView.findViewById(R.id.updateConsideration) as EditText
-        val edtGiftConsideration = dialogView.findViewById(R.id.updateGiftConsideration) as EditText
+        val edtTicketCost = dialogView.findViewById(R.id.updateTicketCost) as EditText
 
         dialogBuilder.setTitle("Update Record")
         dialogBuilder.setMessage("Enter data below")
@@ -135,30 +117,24 @@ class AddSetActivity : AppCompatActivity() {
             val updateId = edtId.text.toString()
             val updateName = edtName.text.toString()
             val updateDate = edtDate.text.toString()
-            val updateHotel = edtHotel.text.toString()
+            val updateRating = edtRating.text.toString()
+            val updateVenue = edtVenue.text.toString()
             val updateCity = edtCity.text.toString()
-            val updateHours = edtHours.text.toString()
-            val updateGifts = edtGifts.text.toString()
-            val updateEvents = edtEvents.text.toString()
-            val updateConsideration = edtConsideration.text.toString()
-            val updateGiftConsideration = edtGiftConsideration.text.toString()
+            val updateTicketCost = edtTicketCost.text.toString()
 
             //creating the instance of DatabaseHandler class
             val databaseHandler: DatabaseHandler= DatabaseHandler(this, null)
-            if(updateId.trim()!="" && updateName.trim()!="" && updateDate.trim()!="" && updateHotel.trim()!="" && updateCity.trim()!="" &&
-                updateHours.trim()!=""  && updateGifts.trim()!=""  && updateEvents.trim()!=""  && updateConsideration.trim()!=""  && updateGiftConsideration.trim()!=""){
+            if(updateId.trim()!="" && updateName.trim()!="" && updateDate.trim()!="" && updateRating.trim()!=""
+                && updateVenue.trim()!="" && updateCity.trim()!=""  && updateTicketCost.trim()!=""){
                 //calling the updateEmployee method of DatabaseHandler class to update record
                 val status = databaseHandler.updateSet(Set(
                     Integer.parseInt(updateId),
                     updateName,
                     Date.valueOf(updateDate),
-                    updateHotel,
+                    updateRating.toDouble(),
+                    updateVenue,
                     updateCity,
-                    updateHours.toDouble(),
-                    updateGifts,
-                    updateEvents,
-                    updateConsideration.toLong(),
-                    updateGiftConsideration.toLong()
+                    updateTicketCost.toDouble()
                 ))
 
                 if(status > -1){
@@ -196,13 +172,11 @@ class AddSetActivity : AppCompatActivity() {
                     Integer.parseInt(deleteId),
                     "",
                     Date.valueOf("1900-01-01"),
-                    "",
-                    "",
                     0.0,
                     "",
                     "",
-                    0,
-                    0
+                    0.0,
+
                 ))
                 if(status > -1){
                     Toast.makeText(applicationContext,"Record Deleted!",Toast.LENGTH_LONG).show()

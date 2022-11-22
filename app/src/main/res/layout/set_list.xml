@@ -26,10 +26,17 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
     <TextView
-        android:id="@+id/textViewHotel"
+        android:id="@+id/textViewRating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hotel"
+        android:text="Rating (0-100)"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <TextView
+        android:id="@+id/textViewVenue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Venue"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
     <TextView
@@ -40,37 +47,10 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
     <TextView
-        android:id="@+id/textViewHours"
+        android:id="@+id/textViewTicketCost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hours"
+        android:text="Ticket Cost"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
-    <TextView
-        android:id="@+id/textViewGifts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gifts"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
-
-    <TextView
-        android:id="@+id/textViewEvents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Events"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
-
-    <TextView
-        android:id="@+id/textViewConsideration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consideration"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
-
-    <TextView
-        android:id="@+id/textViewGiftConsideration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gift Consideration"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 </LinearLayout>
