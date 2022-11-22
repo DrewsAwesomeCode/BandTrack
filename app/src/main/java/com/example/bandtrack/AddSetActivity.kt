@@ -33,21 +33,23 @@ class AddSetActivity : AppCompatActivity() {
         val id = s_id.text.toString()
         val name = s_name.text.toString()
         val date = s_date.text.toString()
+        val spot = s_spot.text.toString()
         val rating = s_rating.text.toString()
         val venue = s_venue.text.toString()
         val city = s_city.text.toString()
         val ticketcost = s_ticketcost.text.toString()
         val databaseHandler: DatabaseHandler = DatabaseHandler(this,null)
-        if(id.trim()!="" && name.trim()!="" && date.trim()!="" && rating.trim()!="" && venue.trim()!="" &&
-            city.trim()!="" && ticketcost.trim()!="") {
+        if(id.trim()!="" && name.trim()!="" && date.trim()!="" && spot.trim()!="" && rating.trim()!=""
+            && venue.trim()!="" && city.trim()!="" && ticketcost.trim()!="") {
 
-            val status = databaseHandler.addSet(Set(Integer.parseInt(id),name, Date.valueOf(date), rating.toDouble(),
+            val status = databaseHandler.addSet(Set(Integer.parseInt(id),name, Date.valueOf(date), spot, rating.toDouble(),
                                                     venue, city, ticketcost.toDouble()))
             if(status > -1){
                 Toast.makeText(applicationContext,"Record saved!",Toast.LENGTH_LONG).show()
                 s_id.text.clear()
                 s_name.text.clear()
                 s_date.text.clear()
+                s_spot.text.clear()
                 s_rating.text.clear()
                 s_venue.text.clear()
                 s_city.text.clear()
@@ -67,6 +69,7 @@ class AddSetActivity : AppCompatActivity() {
         val setArrayId = Array<String>(set.size){"0"}
         val setArrayName = Array<String>(set.size){"null"}
         val setArrayDate = Array<String>(set.size){"1900-01-01"}
+        val setArraySpot = Array<String>(set.size){"null"}
         val setArrayRating = Array<String>(set.size){"0"}
         val setArrayVenue = Array<String>(set.size){"null"}
         val setArrayCity = Array<String>(set.size){"null"}
@@ -76,6 +79,7 @@ class AddSetActivity : AppCompatActivity() {
             setArrayId[index] = s.setId.toString()
             setArrayName[index] = s.bandName
             setArrayDate[index] = s.date.toString()
+            setArraySpot[index] = s.spot
             setArrayRating[index] = s.rating.toString()
             setArrayVenue[index] = s.venue
             setArrayCity[index] = s.city
@@ -88,6 +92,7 @@ class AddSetActivity : AppCompatActivity() {
             setArrayId,
             setArrayName,
             setArrayDate,
+            setArraySpot,
             setArrayRating,
             setArrayVenue,
             setArrayCity,
@@ -105,6 +110,7 @@ class AddSetActivity : AppCompatActivity() {
         val edtId = dialogView.findViewById(R.id.updateSetId) as EditText
         val edtName = dialogView.findViewById(R.id.updateBandName) as EditText
         val edtDate = dialogView.findViewById(R.id.updateDate) as EditText
+        val edtSpot = dialogView.findViewById(R.id.updateSpot) as EditText
         val edtRating = dialogView.findViewById(R.id.updateRating) as EditText
         val edtVenue = dialogView.findViewById(R.id.updateVenue) as EditText
         val edtCity = dialogView.findViewById(R.id.updateCity) as EditText
@@ -117,6 +123,7 @@ class AddSetActivity : AppCompatActivity() {
             val updateId = edtId.text.toString()
             val updateName = edtName.text.toString()
             val updateDate = edtDate.text.toString()
+            val updateSpot = edtSpot.text.toString()
             val updateRating = edtRating.text.toString()
             val updateVenue = edtVenue.text.toString()
             val updateCity = edtCity.text.toString()
@@ -124,13 +131,14 @@ class AddSetActivity : AppCompatActivity() {
 
             //creating the instance of DatabaseHandler class
             val databaseHandler: DatabaseHandler= DatabaseHandler(this, null)
-            if(updateId.trim()!="" && updateName.trim()!="" && updateDate.trim()!="" && updateRating.trim()!=""
+            if(updateId.trim()!="" && updateName.trim()!="" && updateDate.trim()!="" && updateSpot.trim()!="" && updateRating.trim()!=""
                 && updateVenue.trim()!="" && updateCity.trim()!=""  && updateTicketCost.trim()!=""){
                 //calling the updateEmployee method of DatabaseHandler class to update record
                 val status = databaseHandler.updateSet(Set(
                     Integer.parseInt(updateId),
                     updateName,
                     Date.valueOf(updateDate),
+                    updateSpot,
                     updateRating.toDouble(),
                     updateVenue,
                     updateCity,
@@ -172,6 +180,7 @@ class AddSetActivity : AppCompatActivity() {
                     Integer.parseInt(deleteId),
                     "",
                     Date.valueOf("1900-01-01"),
+                    "",
                     0.0,
                     "",
                     "",

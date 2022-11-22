@@ -18,6 +18,7 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
         private val KEY_SETID = "id"
         private val KEY_BANDNAME = "name"
         private val KEY_DATE = "date"
+        private val KEY_SPOT = "spot"
         private val KEY_RATING = "rating"
         private val KEY_VENUE = "venue"
         private val KEY_CITY = "city"
@@ -29,6 +30,7 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
                 + KEY_SETID + " INTEGER PRIMARY KEY,"
                 + KEY_BANDNAME + " TEXT,"
                 + KEY_DATE + " TEXT,"
+                + KEY_SPOT + " TEXT,"
                 + KEY_RATING + " TEXT,"
                 + KEY_VENUE + " TEXT,"
                 + KEY_CITY + " TEXT,"
@@ -49,6 +51,7 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
         contentValues.put(KEY_SETID, set.setId)
         contentValues.put(KEY_BANDNAME, set.bandName)
         contentValues.put(KEY_DATE, set.date.toString())
+        contentValues.put(KEY_SPOT, set.spot)
         contentValues.put(KEY_RATING, set.rating)
         contentValues.put(KEY_VENUE, set.venue)
         contentValues.put(KEY_CITY, set.city)
@@ -75,6 +78,7 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
         var setId: Int
         var bandName: String
         var date: String
+        var spot: String
         var rating: String
         var venue: String
         var city: String
@@ -86,6 +90,7 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
                 setId = cursor.getInt(cursor.getColumnIndex("id"))
                 bandName = cursor.getString(cursor.getColumnIndex("name"))
                 date = cursor.getString(cursor.getColumnIndex("date"))
+                spot = cursor.getString(cursor.getColumnIndex("spot"))
                 rating = cursor.getString(cursor.getColumnIndex("rating"))
                 venue = cursor.getString(cursor.getColumnIndex("venue"))
                 city = cursor.getString(cursor.getColumnIndex("city"))
@@ -95,6 +100,7 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
                     setId = setId,
                     bandName = bandName,
                     date = Date.valueOf(date),
+                    spot = spot,
                     rating = rating.toDouble(),
                     venue = venue,
                     city = city,
@@ -112,6 +118,7 @@ class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?):
         contentValues.put(KEY_SETID, set.setId)
         contentValues.put(KEY_BANDNAME, set.bandName)
         contentValues.put(KEY_DATE, set.date.toString())
+        contentValues.put(KEY_SPOT, set.spot)
         contentValues.put(KEY_RATING, set.rating)
         contentValues.put(KEY_VENUE, set.venue)
         contentValues.put(KEY_CITY, set.city)
