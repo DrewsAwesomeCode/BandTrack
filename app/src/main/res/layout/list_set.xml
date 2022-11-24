@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -7,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#605F5F"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -38,8 +40,8 @@
                 android:id="@+id/set_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
                 android:gravity="center"
+                android:padding="8dp"
                 android:textAppearance="?attr/textAppearanceBody1" />
 
             <TextView
@@ -62,16 +64,16 @@
                 android:id="@+id/set_spot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
                 android:gravity="center"
+                android:padding="8dp"
                 android:textAppearance="?attr/textAppearanceBody1" />
 
             <TextView
                 android:id="@+id/set_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
                 android:gravity="center"
+                android:padding="8dp"
                 android:textAppearance="?attr/textAppearanceBody1" />
 
         </LinearLayout>

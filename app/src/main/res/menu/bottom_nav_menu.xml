@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bands"
+        android:title="Bands"
+        android:icon="@drawable/band"/>
+    <item
+        android:id="@+id/sets"
+        android:title="Sets"
+        android:icon="@drawable/concert"/>
+    <item
+        android:id="@+id/expenses"
+        android:title="Expenses"
+        android:icon="@drawable/money"/>
+</menu>

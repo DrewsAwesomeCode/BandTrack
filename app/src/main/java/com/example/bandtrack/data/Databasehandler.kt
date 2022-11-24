@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteException
 import java.sql.Date
 
 //creating the database logic, extending the SQLiteOpenHelper base class
-class DatabaseHandler(context: Context, factory: SQLiteDatabase.CursorFactory?): SQLiteOpenHelper(context,DATABASE_NAME,factory,DATABASE_VERSION) {
+class DatabaseHandler(context: Context?, factory: SQLiteDatabase.CursorFactory?): SQLiteOpenHelper(context,DATABASE_NAME,factory,DATABASE_VERSION) {
     companion object {
         private val DATABASE_VERSION = 1
         private val DATABASE_NAME = "SET_DATABASE"

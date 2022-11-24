@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bandtrack.R
 import com.example.bandtrack.data.Set
 
-class SetRecAdapter(private val context: Context,
+class SetRecAdapter(
                      private val dataset: List<Set>
 ): RecyclerView.Adapter<SetRecAdapter.SetViewHolder>() {
 
