@@ -42,8 +42,8 @@ class AddSetActivity : AppCompatActivity() {
         if(id.trim()!="" && name.trim()!="" && date.trim()!="" && spot.trim()!="" && rating.trim()!=""
             && venue.trim()!="" && city.trim()!="" && ticketcost.trim()!="") {
 
-            val status = databaseHandler.addSet(Set(Integer.parseInt(id),name, Date.valueOf(date), spot, rating.toDouble(),
-                                                    venue, city, ticketcost.toDouble()))
+            val status = databaseHandler.addSet(Set(Integer.parseInt(id),name, Date.valueOf(date), spot,
+                                                    rating.toDouble(), venue, city, ticketcost.toDouble()))
             if(status > -1){
                 Toast.makeText(applicationContext,"Record saved!",Toast.LENGTH_LONG).show()
                 s_id.text.clear()

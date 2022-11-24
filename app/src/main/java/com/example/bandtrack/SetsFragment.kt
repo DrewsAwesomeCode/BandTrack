@@ -14,7 +14,7 @@ import android.content.Intent
 import android.widget.Button
 import kotlinx.android.synthetic.main.fragment_sets.*
 
-class SetsFragment(context: Context?) : Fragment() {
+class SetsFragment() : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

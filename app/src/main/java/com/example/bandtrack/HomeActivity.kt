@@ -14,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val firstFragment=BandsFragment()
-        val secondFragment=SetsFragment(this)
+        val secondFragment=SetsFragment()
         val thirdFragment=ExpensesFragment()
 
         setCurrentFragment(firstFragment)
