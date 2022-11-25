@@ -38,7 +38,7 @@ class BandsFragment() : Fragment() {
                     timesSeen = getTimesSeen,
                     averageScore = averageRating
                 )
-            }
+            }.sortedBy { it.bandName }
 
 
         view.recycler_view.layoutManager = LinearLayoutManager(activity)

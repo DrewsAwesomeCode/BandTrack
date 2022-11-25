@@ -22,7 +22,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="900dp"
+        android:layout_height="400dp"
         android:layout_marginTop="18dp"
         android:layout_weight="1"
         android:scrollbars="none">
@@ -42,6 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:gravity="right"
                     android:text="Id" />
 
                 <EditText
@@ -62,6 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:gravity="right"
                     android:text="Band Name" />
 
                 <EditText
@@ -82,6 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:gravity="right"
                     android:text="Date" />
 
                 <EditText
@@ -102,6 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:gravity="right"
                     android:text="Opener/Middle/Headline" />
 
                 <EditText
@@ -122,6 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:gravity="right"
                     android:text="Rating" />
 
                 <EditText
@@ -142,6 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:gravity="right"
                     android:text="Venue" />
 
                 <EditText
@@ -162,6 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:gravity="right"
                     android:text="City" />
 
                 <EditText
@@ -182,6 +189,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
+                    android:gravity="right"
                     android:text="Ticket Cost" />
 
                 <EditText
@@ -196,75 +204,14 @@
         </TableLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="200sp"
-        android:layout_marginTop="20sp">
-
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|center_horizontal|center_vertical"
-        android:layout_marginTop="12sp"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:insetLeft="3dp"
-            android:insetRight="3dp"
-            android:onClick="saveRecord"
-            android:text="Save"
-            android:textColor="#DCD4D4" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:insetLeft="3dp"
-            android:insetRight="3dp"
-            android:onClick="viewRecord"
-            android:text="View"
-            android:textColor="#DCD4D4" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:insetLeft="3dp"
-            android:insetRight="3dp"
-            android:onClick="updateRecord"
-            android:text="Update"
-            android:textColor="#DCD4D4" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:insetLeft="3dp"
-            android:insetRight="3dp"
-            android:onClick="deleteRecord"
-            android:text="Delete"
-            android:textColor="#DCD4D4" />
-
-    </LinearLayout>
-
     <Button
         android:id="@+id/buttonSetDone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="2dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:insetLeft="32dp"
-        android:insetTop="16dp"
-        android:insetRight="32dp"
-        android:insetBottom="16dp"
         android:onClick="finishedSet"
-        android:padding="2dp"
-        android:text="Done"
+        android:padding="16dp"
+        android:text="Add"
         android:textColor="#DCD4D4" />
 </LinearLayout>

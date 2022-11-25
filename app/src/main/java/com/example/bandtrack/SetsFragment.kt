@@ -25,7 +25,7 @@ class SetsFragment() : Fragment() {
         val view = inflater.inflate(R.layout.fragment_sets, container, false)
 
         val databaseHandler: DatabaseHandler = DatabaseHandler(context, null)
-        val data = databaseHandler.viewSet()
+        val data = databaseHandler.viewSet().sortedBy { it.date }
 
         view.recycler_view.layoutManager = LinearLayoutManager(activity)
         view.recycler_view.adapter = SetRecAdapter(data)
